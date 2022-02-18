@@ -5,6 +5,6 @@ browser-b-gone version history
 v0.1.0
 ------
 
-_TBD_
+_2022-02-18_
 
 first version
