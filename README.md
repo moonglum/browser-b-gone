@@ -36,6 +36,24 @@ You need to load the JavaScript file `/reload` in your code (in development):
 Now, whenever you call the `reload()` function in your backend, the browsers
 will reload.
 
+## Configuration
+
+By default, browser-b-gone uses `/reload` for serving the JavaScript and
+delivering the change stream. You can change that by providing a different
+endpoint:
+
+```js
+const [reload, middleware] = build({
+	endpoint: "/my-reload"
+});
+```
+
+If you do so, please remember to adjust your script tag accordingly:
+
+```js
+<script src="/my-reload" type="module"></script>
+```
+
 ## Comparison to other solutions
 
 * It has no dependencies and is very lightweight.

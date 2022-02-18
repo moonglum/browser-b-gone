@@ -4,7 +4,9 @@ import { build } from "../index.js";
 const app = express();
 const port = 3000;
 let counter = 0;
-const [reload, middleware] = build();
+const [reload, middleware] = build({
+	endpoint: "/my-reload"
+});
 
 setInterval(() => {
 	// eslint-disable-next-line no-console
@@ -30,7 +32,7 @@ function template() {
 	  <head>
 		<meta charset="utf-8">
 		<title>Sample Page</title>
-		<script src="/reload" type="module"></script>
+		<script src="/my-reload" type="module"></script>
 		<meta name="viewport" content="width=device-width">
 		<meta name="description" content="A test page">
 	  </head>

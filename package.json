@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"test": "npm-run-all lint test:cli",
-		"test:cli": "playwright test",
+		"test:cli": "playwright test --config tests/playwright.config.js",
 		"lint": "eslint --cache index.js tests samples && echo ✓",
 		"sample:express": "node samples/express.js"
 	},
@@ -26,11 +26,11 @@
 		"url": "https://github.com/moonglum/browser-b-gone/issues"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.19.0",
+		"@playwright/test": "^1.19.1",
 		"eslint-config-fnd": "^1.12.0",
-		"express": "^4.17.2",
+		"express": "^4.17.3",
 		"npm-run-all": "^4.1.5",
-		"playwright": "^1.19.0",
+		"playwright": "^1.19.1",
 		"release-util-fnd": "^2.0.1"
 	}
 }

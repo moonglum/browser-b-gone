@@ -26,7 +26,7 @@ export function build({ endpoint = "/reload" } = {}) {
 				}, 1000);
 			} else {
 				res.setHeader("Content-type", "application/javascript");
-				res.end(script());
+				res.end(script(endpoint));
 			}
 
 			return;
@@ -38,12 +38,12 @@ export function build({ endpoint = "/reload" } = {}) {
 	return [reload, middleware];
 }
 
-function script() {
+function script(endpoint) {
 	return `
-	let eventSource = new EventSource("/reload");
-	eventSource.addEventListener("reload", () => {
-	  eventSource.close();
-	  location.reload();
-	});
-  `;
+		let eventSource = new EventSource("${endpoint}");
+		eventSource.addEventListener("reload", () => {
+			eventSource.close();
+			location.reload();
+		});
+	`;
 }
